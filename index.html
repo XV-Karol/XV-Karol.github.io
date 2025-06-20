@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XV Años - Karol Mailany</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #fffaf5;
+      background-image: url('https://www.transparenttextures.com/patterns/beige-paper.png');
+      color: #4b2e2e;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    .preloader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #fffaf5 url('https://www.svgrepo.com/show/477785/horse-shoe.svg') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .preloader h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      color: #b3003c;
+      max-width: 80%;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    .invitation {
+      max-width: 700px;
+      margin: auto;
+      padding: 2rem;
+      border: 8px solid #b3003c;
+      border-radius: 20px;
+      background-color: #fffefb;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
+    }
+    h1.title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.8rem;
+      color: #b3003c;
+      margin-top: 0.5em;
+      position: relative;
+      z-index: 2;
+    }
+    .parents, .godparents {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 1rem 0;
+      font-size: 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    #parentsw, #godparentsw {
+      font-family: cursive;
+    }
+    h2.name {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      color: #d4af37;
+      margin-bottom: 0.5em;
+      position: relative;
+      z-index: 2;
+    }
+    .date {
+      font-size: 1.3rem;
+      color: #d49b00;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .countdown {
+      font-size: 1.3rem;
+      color: #b3003c;
+      background-color: #fff1f5;
+      border: 2px dashed #d4af37;
+      padding: 1rem;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 1rem auto 2rem auto;
+      position: relative;
+      z-index: 2;
+    }
+    .section {
+      margin: 1.5rem 0;
+      position: relative;
+      z-index: 2;
+    }
+    .button {
+      background-color: #b3003c;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+    .button:hover {
+      background-color: #8d0030;
+    }
+    .decor, .dress {
+      pointer-events: none;
+      opacity: 0.9;
+      position: absolute;
+    }
+    .decor {
+      width: 80px;
+      z-index: 0;
+    }
+    .top-left {
+      top: 10px;
+      left: 10px;
+    }
+    .top-right {
+      top: 10px;
+      right: 10px;
+    }
+    .bottom-left {
+      bottom: 10px;
+      left: 10px;
+    }
+    .bottom-right {
+      bottom: 10px;
+      right: 10px;
+    }
+    .dress {
+      bottom: 10px;
+      left: 10px;
+      width: 25%;
+      max-width: 180px;
+      height: auto;
+      z-index: 0;
+    }
+    footer {
+      font-size: 0.9em;
+      color: #6e4c4c;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 600px) {
+      h1.title {
+        font-size: 2.5rem;
+      }
+      h2.name {
+        font-size: 2.8rem;
+      }
+      .parents, .godparents {
+        font-size: 1.1rem;
+      }
+      .countdown {
+        font-size: 1rem;
+      }
+      .dress {
+        width: 35%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="preloader" id="preloader">
+    <h2>“Hay momentos en la vida que imaginamos soñando y esperamos, uno de esos momentos ha llegado.”</h2>
+  </div>
+
+  <div class="invitation" id="mainContent" style="display:none;">
+    <!-- Rosas decorativas -->
+    <img class="decor top-left" src="https://img.freepik.com/vector-premium/rosas-rojas-aisladas-blanco_2967-38.jpg?w=740" alt="rosas">
+    <img class="decor top-right" src="https://img.freepik.com/vector-premium/rosas-rojas-aisladas-blanco_2967-38.jpg?w=740" alt="rosas">
+    <img class="decor bottom-right" src="https://img.freepik.com/vector-premium/rosas-rojas-aisladas-blanco_2967-38.jpg?w=740" alt="rosas">
+
+    <!-- Vestido en la esquina -->
+    <img class="dress" src="https://img.freepik.com/vector-premium/princesa-corona-feminidad-realeza-grafico-ilustracion-imagenes-predisenadas-colores_769976-110.jpg?w=2000" alt="vestido">
+
+    <h1 class="title">Mis XV Años</h1>
+
+    <div class="parents">
+      Antonio González Teacalco<br/>
+      Lucía Hernández Barrera<br/><br/>
+      <div id="parentsw">
+        <strong>Tenemos el gusto de invitarles a los XV Años de Nuestra Querida Hija</strong>
+      </div>
+    </div>
+
+    <h2 class="name">Karol Mailany</h2>
+
+    <p class="date">19 de julio de 2025 · 2:00 PM</p>
+    <div class="countdown" id="countdown"></div>
+
+    <div class="section">
+      <strong>Ceremonia religiosa:</strong><br />
+      <a class="button" href="https://maps.app.goo.gl/wwewjjLzENC3fHTV8" target="_blank">Parroquia de San Luis Obispo</a>
+    </div>
+
+    <div class="section">
+      <strong>Recepción:</strong><br />
+      <a class="button" href="https://maps.app.goo.gl/pUPcG9BQu9qyaHEs6" target="_blank">Salón Cristo Rey</a>
+    </div>
+
+    <div class="godparents">
+      Maty Cuevas Bautista<br/>
+      José Victoriano Hernández Barrera<br/>
+      <div id="godparentsw">
+        <strong>Serán los padrinos de Karol Mailany</strong>
+      </div>
+    </div>
+
+    <footer>
+      <p style="margin-top:2em; font-style: italic;"><strong>¡Te esperamos en este día tan especial!</strong></p>
+    </footer>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('preloader').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'block';
+      }, 3000);
+    });
+
+    const countdown = document.getElementById("countdown");
+    const eventDate = new Date("2025-07-19T14:00:00-06:00").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days} días, ${hours} horas, ${minutes} minutos y ${seconds} segundos`;
+    }, 1000);
+  </script>
+</body>
+</html>
