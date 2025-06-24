@@ -135,6 +135,10 @@
 #screen4.visible .decor-visible {
   display: block;
 }
+#screen4.visible ~ .global-butterfly {
+  display: none !important;
+}
+
 
 .decor-top-left {
   top: 150px;
@@ -200,7 +204,7 @@
   <div id="screen4" class="screen">
   <img class="crown" src="https://images.vexels.com/content/236497/preview/15th-birthday-yellow-stroke-crown-1b03f4.png" alt="Corona" />
 
-  <h1 style="font-family: 'Great Vibes', cursive; font-size: 6rem; color: #e4b43c; text-shadow: 2px 2px 6px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+  <h1 style="font-family: 'Great Vibes', cursive; font-size: 6rem; color:  #e4b43c; text-shadow: 2px 2px 6px rgba(0,0,0,0.1); margin-bottom: 1rem;">
     Karol Mailany
   </h1>
 
@@ -258,6 +262,8 @@
   </div>
 
   <!-- Mariposas y rosas adicionales (puedes duplicar y cambiar src según color) -->
+   <img class="butterfly global-butterfly" src="https://png.pngtree.com/png-vector/20240205/ourmid/pngtree-flying-purple-butterfly-png-image_11624080.png" style="top: 10%; left: 10%;" alt="mariposa morada">
+  <img class="butterfly global-butterfly" src="https://png.pngtree.com/png-vector/20240205/ourmid/pngtree-flying-purple-butterfly-png-image_11624080.png" style="bottom: 10%; right: 10%;" alt="mariposa dorada">
 
   <!-- Script de transición -->
   <script>
