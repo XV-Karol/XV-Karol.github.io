@@ -28,8 +28,8 @@
       justify-content: center;
       text-align: center;
       flex-direction: column;
-      transition: opacity 1s ease;
       position: relative;
+      transition: opacity 1s ease;
     }
 
     .visible {
@@ -42,11 +42,10 @@
       transition: opacity 1s ease;
     }
 
-    .welcome {
+    .welcome, .text-animated {
       font-family: 'Great Vibes', cursive;
-      font-size: 2.8rem;
+      font-size: 3.3rem;
       color: #955bb0;
-      max-width: 90%;
       animation: fadeInUp 2s ease;
     }
 
@@ -55,22 +54,27 @@
       100% {opacity: 1; transform: translateY(0);}
     }
 
-    .decor {
+    .butterfly, .rose {
       position: absolute;
-      width: 60px;
+      width: 50px;
+      animation: float 6s ease-in-out infinite;
       opacity: 0.8;
     }
 
-    .butterfly {
-      width: 50px;
-      position: absolute;
-      animation: float 6s ease-in-out infinite;
+    .rose {
+      width: 60px;
+      animation: pulse 4s infinite ease-in-out;
     }
 
     @keyframes float {
       0% {transform: translateY(0) rotate(0deg);}
       50% {transform: translateY(-20px) rotate(10deg);}
       100% {transform: translateY(0) rotate(0deg);}
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
 
     button.start-btn {
@@ -84,9 +88,80 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
+    .crown {
+      width: 80px;
+      margin-bottom: -20px;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .corner-decor {
+      position: absolute;
+      width: 60px;
+      animation: float 5s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    .top-left { top: 5px; left: 5px; }
+    .top-right { top: 5px; right: 5px; }
+    .bottom-left { bottom: 5px; left: 5px; }
+    .bottom-right { bottom: 5px; right: 5px; }
+
+    .names {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #955bb0;
+    }
+
     audio {
       display: none;
     }
+    /* Posiciones decorativas para screen4 */
+.decor-visible {
+  display: none;
+  z-index: 2;
+  position: absolute;
+  width: 100px;
+  opacity: 0.85;
+  animation: drift 7s ease-in-out infinite;
+}
+@keyframes drift {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  20%  { transform: translate(8px, -6px) rotate(5deg); }
+  40%  { transform: translate(-6px, -12px) rotate(-3deg); }
+  60%  { transform: translate(10px, -8px) rotate(8deg); }
+  80%  { transform: translate(-4px, -6px) rotate(-5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+#screen4.visible .decor-visible {
+  display: block;
+}
+
+.decor-top-left {
+  top: 10px;
+  left: 10px;
+}
+
+.decor-top-right {
+  top: 10px;
+  right: 10px;
+}
+
+.decor-bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+
+.decor-bottom-right {
+  bottom: 10px;
+  right: 10px;
+}
+
+.crown {
+  width: 150px;
+  margin-bottom: -15px;
+  animation: fadeInUp 2s ease;
+}
+
   </style>
 </head>
 <body>
@@ -95,22 +170,20 @@
     Tu navegador no soporta audio.
   </audio>
 
-  <!-- Pantalla 0: Inicio -->
+  <!-- Pantalla de Inicio -->
   <div id="startScreen" class="screen visible">
     <button class="start-btn" onclick="startPresentation()">Iniciar</button>
   </div>
 
-  <!-- Pantallas existentes -->
+  <!-- Pantallas -->
   <div id="screen1" class="screen">
-    <p class="welcome">
-      “Hay momentos en la vida que imaginamos soñando y esperamos, uno de esos momentos ha llegado.”
-    </p>
+    <p class="welcome">“Hay momentos en la vida que imaginamos soñando y esperamos, uno de esos momentos ha llegado.”</p>
   </div>
 
   <div id="screen2" class="screen">
     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2Gwf5yG9WC6DqulxotZN6DkGeI_9TSSNioQneNGBfdm61xkqfsG1Ga-l1y6wwxdQsmWrahb-I3S5_Gtn4Pa0-BoBpbckq53uqNmPUos9y5-6ULEeW8moa6nombHnhk4jqcVDPtPyb07HMpoL80H4upZc9h62GHkrZi6NK3lozohdSw5eqnrDiS4VO6go/s659/princesa.webp"
          alt="Vestido lila"
-         style="width: 25%; max-width: 200px; margin-bottom: 1.5rem;" />
+         style="width: 80%; max-width: 250px; margin-bottom: 1.5rem;" />
 
     <div style="position: relative; display: inline-block;">
       <h1 style="font-family: 'Great Vibes', cursive; font-size: 3rem; color: #955bb0;">Mis XV Años</h1>
@@ -120,35 +193,46 @@
   </div>
 
   <div id="screen3" class="screen">
-    <p class="welcome">
-      Con alegría y emoción<br>
-      te invitamos a compartir este momento tan especial<br>
-      en la vida de nuestra querida quinceañera.
-    </p>
+    <p class="welcome">Con alegría y emoción te invitamos a compartir este momento tan especial en la vida de nuestra querida quinceañera.</p>
   </div>
 
+  <!-- Pantalla con nombre de Karol Mailany + corona y decoraciones -->
   <div id="screen4" class="screen">
-    <h1 style="font-family: 'Great Vibes', cursive; font-size: 4rem; color: #d4af37; text-shadow: 2px 2px 6px rgba(0,0,0,0.1); margin-bottom: 1rem;">
-      Karol Mailany
-    </h1>
+  <img class="crown" src="https://images.vexels.com/content/236497/preview/15th-birthday-yellow-stroke-crown-1b03f4.png" alt="Corona" />
+
+  <h1 style="font-family: 'Great Vibes', cursive; font-size: 6rem; color: #d4af37; text-shadow: 2px 2px 6px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+    Karol Mailany
+  </h1>
+
+  <!-- Decoraciones visibles SOLO en esta pantalla -->
+  <img src="https://png.pngtree.com/png-vector/20250122/ourmid/pngtree-golden-butterfly-a-luxurious-sparkle-png-image_15298437.png" class="decor-visible decor-top-left" alt="mariposa morada" />
+  <img src="https://png.pngtree.com/png-vector/20250122/ourmid/pngtree-golden-butterfly-a-luxurious-sparkle-png-image_15298437.png" class="decor-visible decor-top-right" style="animation-delay: 2s;" alt="mariposa dorada" />
+  <img src="https://png.pngtree.com/png-vector/20250122/ourmid/pngtree-golden-butterfly-a-luxurious-sparkle-png-image_15298437.png" class="decor-visible decor-bottom-left" style="animation-delay: 2.5s;" alt="rosa" />
+  <img src="https://png.pngtree.com/png-vector/20250122/ourmid/pngtree-golden-butterfly-a-luxurious-sparkle-png-image_15298437.png" class="decor-visible decor-bottom-right" style="animation-delay: 2s;" alt="mariposa" />
+</div>
+
+
+  <!-- Pantalla con Padres -->
+  <div id="screen5" class="screen">
+    <p class="names">Con amor infinito, sus padres:</p>
+    <div class="names">
+      <br> Antonio González Teacalco<br />
+      Lucía Hernández Barrera
+    </div>
   </div>
 
-  <div id="screen5" class="screen">
-    <p style="font-family: 'Great Vibes', cursive; font-size: 2.2rem; color: #955bb0; margin-bottom: 2rem;">
-      “Con amor infinito, sus padres y padrinos acompañan este gran momento”
-    </p>
-    <div style="font-size: 1.4rem; line-height: 2; color: #4b2e2e;">
-      <strong>Padres:</strong><br />
-      Antonio González Teacalco<br />
-      Lucía Hernández Barrera<br /><br />
-      <strong>Padrinos:</strong><br />
-      Maty Cuevas Bautista<br />
+  <!-- Pantalla con Padrinos -->
+  <div id="screen6" class="screen">
+    <p class="names">Y sus padrinos:</p>
+    <div class="names">
+      <br> Maty Cuevas Bautista<br />
       José Victoriano Hernández Barrera
     </div>
   </div>
 
-  <div id="screen6" class="screen">
-    <p style="font-family: 'Great Vibes', cursive; font-size: 2.2rem; color: #955bb0; margin-bottom: 1rem;">
+  <!-- Pantalla final -->
+  <div id="screen7" class="screen">
+    <p style="font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: #955bb0; margin-bottom: 1rem;">
       ¡Nos encantaría que nos acompañaras!
     </p>
     <div style="font-size: 1.2rem; color: #4b2e2e; margin-bottom: 1.5rem;">
@@ -173,25 +257,22 @@
     </div>
   </div>
 
-  <!-- Mariposas decorativas -->
-  <img class="butterfly" src="https://png.pngtree.com/png-vector/20240205/ourmid/pngtree-flying-purple-butterfly-png-image_11624080.png" style="top: 10%; left: 10%;" alt="mariposa morada">
-  <img class="butterfly" src="https://png.pngtree.com/png-vector/20240205/ourmid/pngtree-flying-purple-butterfly-png-image_11624080.png" style="bottom: 10%; right: 10%;" alt="mariposa dorada">
+  <!-- Mariposas y rosas adicionales (puedes duplicar y cambiar src según color) -->
 
+  <!-- Script de transición -->
   <script>
     function startPresentation() {
       const music = document.getElementById('bgMusic');
       music.currentTime = 15;
       music.play();
 
-      const screens = ["startScreen", "screen1", "screen2", "screen3", "screen4", "screen5", "screen6"];
-
-      // Ocultar pantalla de inicio
+      const screens = ["startScreen", "screen1", "screen2", "screen3", "screen4", "screen5", "screen6", "screen7"];
       document.getElementById("startScreen").classList.remove("visible");
       setTimeout(() => {
         document.getElementById("screen1").classList.add("visible");
       }, 100);
 
-      const delays = [5000, 6000, 6000, 6000, 6000, 6000];
+      const delays = [5000, 6000, 6000, 6000, 6000, 6000, 6000];
       let index = 1;
 
       function nextScreen() {
